@@ -1013,3 +1013,24 @@ Hisobot:
     - 2002 yilda: 70 ta 7%i
     ....
 """
+list_brends = [] #Barcha telefonlarni brendini listga joylash uchun
+list_years = [] #Barcha telefonlar yilini listga joylash uchun
+
+for element in phones:
+    list_brends.append(element["brand"])
+    list_years.append(element["date"])
+
+print("Hisobot:")
+print("-Brendlar:")
+for element in set(list_brends):
+    count = list_brends.count(element)
+    print("       - {} telefonlari: {} ta {}%".format(element, count, count * 100 / len(list_brends)))
+
+print("- Yillar(2000-2025)")
+for element in set(list_years):
+    for i in range(6):
+        if i + 2000 == element:
+            count = list_years.count(element)
+            print("        - {} yilda: {} ta {}%".format(element, count, count * 100 / len(list_years)))
+
+print("Ishlash vaqti oralig'i - {}".format(round))
